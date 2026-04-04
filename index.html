@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Professional resume & portfolio - software engineer, developer, and creative problem solver. Showcasing experience, skills, and projects.">
-  <title>Sebastian Gomez · Resume & Portfolio</title>
+  <meta name="description" content="Professional resume & portfolio - Commercial Welder, Fabrication Specialist, and craftsman. Experience, skills, and project highlights.">
+  <title>Michael Torres · Welder & Fabricator Resume</title>
   <!-- Google Fonts + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -17,8 +17,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f1f5f9;
-      color: #0a0f1c;
+      background: #e9eef3;
+      color: #1e2a3a;
       line-height: 1.5;
       scroll-behavior: smooth;
     }
@@ -27,70 +27,78 @@
     .resume-container {
       max-width: 1100px;
       margin: 2rem auto;
-      background: white;
-      border-radius: 2rem;
-      box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2);
+      background: #ffffff;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
       overflow: hidden;
       transition: all 0.2s;
     }
 
-    /* two column layout for desktop */
+    /* two column layout */
     .resume-grid {
       display: grid;
       grid-template-columns: 34% 66%;
     }
 
-    /* ========== SIDEBAR (left) ========== */
+    /* ========== SIDEBAR (left - darker, less bright) ========== */
     .sidebar {
-      background: #0f172a;
+      background: #2c3e3f;
       color: #e2e8f0;
       padding: 2rem 1.8rem;
       height: 100%;
     }
 
-    .profile-pic {
+    /* profile image section */
+    .profile-image-container {
       text-align: center;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
     }
-    .avatar-circle {
-      width: 140px;
-      height: 140px;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.25);
+      box-shadow: 0 12px 18px -8px rgba(0,0,0,0.3);
+      background: #cfdde0;
+      transition: 0.2s;
+    }
+    .placeholder-img {
+      width: 150px;
+      height: 150px;
+      background: #5f7f6e;
       border-radius: 50%;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 4px solid rgba(255,255,255,0.2);
-      box-shadow: 0 15px 25px -8px rgba(0,0,0,0.3);
-    }
-    .avatar-circle i {
-      font-size: 4rem;
-      color: white;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+      border: 4px solid rgba(255,255,255,0.3);
+      color: #cbd5e6;
+      font-size: 3rem;
     }
     .sidebar h2 {
       font-size: 1.6rem;
       font-weight: 700;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       text-align: center;
-      color: white;
-      letter-spacing: -0.3px;
+      color: #f0f3f5;
+      letter-spacing: -0.2px;
     }
     .sidebar .title {
       text-align: center;
       font-size: 0.9rem;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
       display: inline-block;
       width: 100%;
       padding: 0.4rem 0;
       border-radius: 40px;
-      margin: 0.8rem 0 1.5rem 0;
+      margin: 0.7rem 0 1.2rem 0;
       font-weight: 500;
+      color: #d1dfe3;
     }
 
     .contact-info {
-      margin: 1.8rem 0;
+      margin: 1.5rem 0;
     }
     .contact-item {
       display: flex;
@@ -102,10 +110,10 @@
     }
     .contact-item i {
       width: 28px;
-      font-size: 1.1rem;
-      color: #60a5fa;
+      font-size: 1rem;
+      color: #9fc7c1;
     }
-    .contact-item a {
+    .contact-item a, .contact-item span {
       color: #cbd5e1;
       text-decoration: none;
       transition: 0.2s;
@@ -119,108 +127,106 @@
       margin: 2rem 0 1.5rem 0;
     }
     .sidebar-section h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       letter-spacing: 1px;
-      color: #94a3b8;
+      color: #bcd0cf;
       margin-bottom: 1rem;
-      border-left: 3px solid #3b82f6;
+      border-left: 3px solid #88b2a8;
       padding-left: 0.75rem;
     }
     .skill-tag {
       display: inline-block;
-      background: rgba(59,130,246,0.2);
+      background: rgba(136, 178, 168, 0.22);
       padding: 0.3rem 0.8rem;
       border-radius: 30px;
       font-size: 0.8rem;
       margin: 0.25rem 0.35rem;
-      color: #e2e8f0;
+      color: #eef3f0;
       font-weight: 500;
     }
-    .language-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.8rem;
+    .cert-item {
       font-size: 0.85rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
     }
-    .lang-name {
-      font-weight: 500;
-    }
-    .lang-level {
-      color: #94a3b8;
-      font-size: 0.75rem;
+    .cert-item i {
+      width: 20px;
+      font-size: 0.8rem;
+      color: #aac7c0;
     }
 
-    /* ========== MAIN CONTENT (right) ========== */
+    /* ========== MAIN CONTENT (right - soft neutral) ========== */
     .main-content {
       padding: 2rem 2.2rem;
-      background: white;
+      background: #fefef9;
     }
     .main-header {
-      margin-bottom: 1.8rem;
-      border-bottom: 3px solid #eef2ff;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e2e8e2;
       padding-bottom: 1rem;
     }
     .main-header h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      background: linear-gradient(to right, #0f172a, #2563eb);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #2c3e3f;
       letter-spacing: -0.02em;
     }
     .main-header .bio {
-      color: #334155;
+      color: #4a5b5e;
       margin-top: 0.5rem;
-      font-size: 1rem;
+      font-size: 0.95rem;
       max-width: 90%;
     }
     .section {
       margin-bottom: 2rem;
     }
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: #0f172a;
+      color: #2c3e3f;
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #88b2a8;
+      padding-left: 0.8rem;
     }
     .section-title i {
-      color: #3b82f6;
-      font-size: 1.3rem;
+      color: #5f8b7f;
+      font-size: 1.2rem;
     }
-    .job, .education-item {
-      margin-bottom: 1.4rem;
+    .job {
+      margin-bottom: 1.6rem;
     }
-    .job-header, .edu-header {
+    .job-header {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: baseline;
       margin-bottom: 0.3rem;
     }
-    .job-title, .edu-title {
+    .job-title {
       font-weight: 700;
       font-size: 1.1rem;
-      color: #0f172a;
+      color: #1e2a3a;
     }
-    .company, .edu-institution {
+    .company {
       font-weight: 600;
-      color: #2563eb;
+      color: #5f7f6e;
     }
     .date {
       font-size: 0.75rem;
-      color: #64748b;
-      background: #f1f5f9;
+      color: #6f8f88;
+      background: #eef3f0;
       padding: 0.2rem 0.7rem;
       border-radius: 30px;
     }
     .job-description {
       font-size: 0.85rem;
-      color: #334155;
+      color: #2d3e42;
       margin-top: 0.5rem;
       padding-left: 0.2rem;
       list-style-position: inside;
@@ -228,145 +234,69 @@
     .job-description li {
       margin-bottom: 0.3rem;
     }
+
+    /* Projects - simple cards, no links */
     .project-item {
-      background: #f8fafc;
+      background: #f7f9f5;
       border-radius: 1rem;
       padding: 1rem;
       margin-bottom: 1rem;
       transition: 0.2s;
-      border: 1px solid #eef2ff;
+      border: 1px solid #e2e6df;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
     .project-item:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+      background: #fefef7;
+      border-color: #cfdad1;
     }
     .project-name {
       font-weight: 700;
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      flex-wrap: wrap;
       margin-bottom: 0.4rem;
+      color: #2c3e3f;
     }
-    .project-name a {
-      color: #0f172a;
-      text-decoration: none;
-    }
-    .project-name a:hover {
-      color: #2563eb;
-      text-decoration: underline;
-    }
-    .project-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 0.6rem;
-    }
-    .project-links a {
-      font-size: 0.75rem;
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: 500;
+    .project-name i {
+      color: #7f9e92;
+      font-size: 1rem;
     }
     .project-tech {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.6rem;
+      margin-top: 0.5rem;
     }
     .tech-badge {
-      background: #e2e8f0;
-      padding: 0.2rem 0.6rem;
+      background: #e5ebe6;
+      padding: 0.2rem 0.7rem;
       border-radius: 20px;
       font-size: 0.7rem;
       font-weight: 500;
-      color: #1e293b;
+      color: #2e4a42;
+    }
+    /* No links at all — removed any hyperlink */
+    .no-link {
+      cursor: default;
     }
     hr {
       margin: 1rem 0;
       border: 0;
       height: 1px;
-      background: #eef2ff;
-    }
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      justify-content: flex-start;
-    }
-    .social-links a {
-      background: #f1f5f9;
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      color: #1e293b;
-      transition: 0.2s;
-      font-size: 1.1rem;
-    }
-    .social-links a:hover {
-      background: #0f172a;
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    @media (max-width: 780px) {
-      .resume-grid {
-        grid-template-columns: 1fr;
-      }
-      .resume-container {
-        margin: 1rem;
-        border-radius: 1.5rem;
-      }
-      .main-header h1 {
-        font-size: 2rem;
-      }
-      .sidebar {
-        padding: 1.8rem;
-      }
-    }
-    @media print {
-      body {
-        background: white;
-        margin: 0;
-        padding: 0;
-      }
-      .resume-container {
-        box-shadow: none;
-        margin: 0;
-        border-radius: 0;
-      }
-      .sidebar {
-        background: #f1f5f9;
-        color: #0f172a;
-      }
-      .contact-item a, .sidebar .title, .skill-tag {
-        color: #0f172a;
-      }
-      .skill-tag {
-        background: #e2e8f0;
-        color: #0f172a;
-      }
-      .avatar-circle i {
-        color: #1e293b;
-      }
-      button.print-btn {
-        display: none;
-      }
+      background: #e0e8e0;
     }
     .print-btn {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      background: #0f172a;
+      background: #4b6b62;
       border: none;
       color: white;
-      padding: 0.8rem 1.2rem;
+      padding: 0.7rem 1.2rem;
       border-radius: 60px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
       z-index: 100;
       display: flex;
       align-items: center;
@@ -375,14 +305,48 @@
       transition: 0.2s;
     }
     .print-btn:hover {
-      background: #2563eb;
+      background: #2c3e3f;
       transform: scale(1.02);
     }
     footer {
       text-align: center;
       font-size: 0.7rem;
       padding: 1rem;
-      color: #64748b;
+      color: #7b8a85;
+      background: #fefef9;
+      border-top: 1px solid #e0e8e0;
+    }
+    @media (max-width: 780px) {
+      .resume-grid {
+        grid-template-columns: 1fr;
+      }
+      .resume-container {
+        margin: 1rem;
+      }
+      .main-header h1 {
+        font-size: 1.8rem;
+      }
+    }
+    @media print {
+      body {
+        background: white;
+      }
+      .resume-container {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+      }
+      .sidebar {
+        background: #eef3f0;
+        color: #1e2a3a;
+      }
+      .skill-tag {
+        background: #dce6e0;
+        color: #1e2a3a;
+      }
+      .print-btn {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -390,219 +354,209 @@
 
 <div class="resume-container" id="resumeCard">
   <div class="resume-grid">
-    <!-- LEFT COLUMN: SIDEBAR -->
+    <!-- LEFT COLUMN: SIDEBAR with profile image -->
     <aside class="sidebar">
-      <div class="profile-pic">
-        <div class="avatar-circle">
-          <i class="fas fa-user-astronaut"></i>
-        </div>
-        <h2>Sebastian Gomez</h2>
-        <div class="title">Senior Full-Stack Engineer</div>
+      <div class="profile-image-container">
+        <!-- IMAGE INSERTION: Replace the 'src' with your own image path.
+             For GitHub Pages, place your photo in the same folder (e.g., profile.jpg)
+             and update src="profile.jpg" accordingly.
+             You can also use a placeholder image from online but recommended local. -->
+        <img id="userProfileImg" class="profile-img" src="https://placehold.co/400x400?text=Your+Photo" alt="Profile portrait of welder">
+        <!-- Instruction note: Change 'src' attribute above to your image file name.
+             Example: src="my-photo.jpg" -->
       </div>
+      <h2>Michael Torres</h2>
+      <div class="title">Certified Commercial Welder · Fabricator</div>
       
       <div class="contact-info">
-        <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:alex.rivera@example.com">alex.rivera@example.com</a></div>
-        <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+1 (415) 867-5309</span></div>
-        <div class="contact-item"><i class="fab fa-github"></i> <a href="#">github.com/alexrivera</a></div>
-        <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/alexrivera</a></div>
-        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>San Francisco, CA</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> <span>michael.torres@weldingpro.com</span></div>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+1 (503) 788-2214</span></div>
+        <div class="contact-item"><i class="fab fa-github"></i> <span>github.com/mtorres-weld</span></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Portland, OR</span></div>
       </div>
 
       <div class="sidebar-section">
-        <h3><i class="fas fa-code"></i> Technical Skills</h3>
+        <h3><i class="fas fa-fire-extinguisher"></i> Welding Skills</h3>
         <div>
-          <span class="skill-tag">JavaScript/TypeScript</span>
-          <span class="skill-tag">React / Next.js</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Java</span>
-          <span class="skill-tag">Tailwind / CSS3</span>
-          <span class="skill-tag">GraphQL</span>
-          <span class="skill-tag">PostgreSQL</span>
-          <span class="skill-tag">Docker / K8s</span>
-          <span class="skill-tag">Git & CI/CD</span>
+          <span class="skill-tag">SMAW (Stick)</span>
+          <span class="skill-tag">GMAW (MIG)</span>
+          <span class="skill-tag">GTAW (TIG)</span>
+          <span class="skill-tag">FCAW</span>
+          <span class="skill-tag">Plasma Cutting</span>
+          <span class="skill-tag">Blueprint Reading</span>
+          <span class="skill-tag">Oxy-Acetylene</span>
+          <span class="skill-tag">Structural Steel</span>
+          <span class="skill-tag">Pipe Welding</span>
         </div>
-      </div>
-
-      <div class="sidebar-section">
-        <h3><i class="fas fa-language"></i> Languages</h3>
-        <div class="language-item"><span class="lang-name">English</span> <span class="lang-level">Native / Fluent</span></div>
-        <div class="language-item"><span class="lang-name">Spanish</span> <span class="lang-level">Professional working</span></div>
-        <div class="language-item"><span class="lang-name">French</span> <span class="lang-level">Intermediate (B1)</span></div>
       </div>
 
       <div class="sidebar-section">
         <h3><i class="fas fa-certificate"></i> Certifications</h3>
-        <div class="language-item"><span class="lang-name">AWS Solutions Architect</span> <span class="lang-level">2024</span></div>
-        <div class="language-item"><span class="lang-name">Google UX Design</span> <span class="lang-level">2023</span></div>
-        <div class="language-item"><span class="lang-name">Meta Backend Dev</span> <span class="lang-level">2022</span></div>
+        <div class="cert-item"><i class="fas fa-check-circle"></i> AWS D1.1 Structural Steel</div>
+        <div class="cert-item"><i class="fas fa-check-circle"></i> ASME Section IX (Pipe)</div>
+        <div class="cert-item"><i class="fas fa-check-circle"></i> OSHA 30-Hour Safety</div>
+        <div class="cert-item"><i class="fas fa-check-circle"></i> NCCER Welding Level 2</div>
       </div>
     </aside>
 
-    <!-- RIGHT COLUMN: MAIN CONTENT (Experience, Projects, Education) -->
+    <!-- MAIN RIGHT: WORK EXPERIENCE (Commercial Welder focused) + Projects (no links) -->
     <main class="main-content">
       <div class="main-header">
-        <h1>Sebastian Gomez</h1>
-        <div class="bio">Passionate full-stack developer with 6+ years of experience building scalable web apps, leading frontend teams, and crafting exceptional digital experiences. Open-source contributor & tech writer.</div>
-        <div class="social-links">
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Portfolio"><i class="fas fa-globe"></i></a>
-        </div>
+        <h1>Michael Torres</h1>
+        <div class="bio">Dedicated commercial welder with 8+ years of experience in heavy fabrication, pipeline welding, and structural erections. Committed to precision, safety, and delivering high-quality metalwork in industrial environments.</div>
       </div>
 
-      <!-- WORK EXPERIENCE -->
+      <!-- WORK EXPERIENCE - Commercial Welder roles -->
       <div class="section">
-        <div class="section-title"><i class="fas fa-briefcase"></i> Work Experience</div>
+        <div class="section-title"><i class="fas fa-hard-hat"></i> Work Experience</div>
         
         <div class="job">
           <div class="job-header">
-            <span class="job-title">Senior Frontend Engineer</span>
+            <span class="job-title">Senior Commercial Welder</span>
             <span class="date">2022 – Present</span>
           </div>
-          <div class="company">TechFlow · San Francisco (Remote)</div>
+          <div class="company">Pacific Steel & Fabrication · Portland, OR</div>
           <ul class="job-description">
-            <li>Led redesign of the core dashboard, improving performance by 40% and user engagement by 25%.</li>
-            <li>Mentored 4 junior developers, conducted code reviews, and introduced component library using Storybook.</li>
-            <li>Implemented real-time features with WebSockets and React Query, reducing server load by 18%.</li>
+            <li>Execute structural welds on commercial buildings and bridge components using FCAW and SMAW processes, ensuring AWS D1.1 compliance.</li>
+            <li>Lead a team of 5 welders on large-scale projects, reducing rework rate by 22% through quality checks and technique guidance.</li>
+            <li>Interpret blueprints and shop drawings to fabricate custom steel beams, columns, and handrails for industrial clients.</li>
           </ul>
         </div>
 
         <div class="job">
           <div class="job-header">
-            <span class="job-title">Full Stack Developer</span>
+            <span class="job-title">Pipe Welder / Fabricator</span>
             <span class="date">2019 – 2022</span>
           </div>
-          <div class="company">Nexify Labs · Austin, TX</div>
+          <div class="company">Northwest Pipeline Services · Tacoma, WA</div>
           <ul class="job-description">
-            <li>Built RESTful APIs with Node/Express and integrated with React frontend for a fintech platform.</li>
-            <li>Optimized MongoDB aggregation pipelines, reducing query latency by 35%.</li>
-            <li>Collaborated with product team to ship 10+ major features, maintaining 99.9% uptime.</li>
+            <li>Performed TIG and Stick welding on carbon steel and stainless steel pipes for commercial gas and water systems.</li>
+            <li>Conducted radiographic test prep and maintained 98% first-pass yield on critical pipe joints.</li>
+            <li>Collaborated with engineering teams to resolve fit-up issues, reducing material waste by 15%.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-title">Commercial Welder / Fabricator</span>
+            <span class="date">2016 – 2019</span>
+          </div>
+          <div class="company">IronCraft Manufacturing · Salem, OR</div>
+          <ul class="job-description">
+            <li>Fabricated heavy equipment components and custom metal assemblies for agricultural and construction sectors.</li>
+            <li>Operated overhead cranes, shear, and brake press; maintained welding equipment and ensured safety protocols.</li>
+            <li>Certified in vertical and overhead welding positions, consistently meeting production deadlines.</li>
           </ul>
         </div>
       </div>
 
-      <!-- PROJECTS SECTION (interactive / links like github pages style) -->
+      <!-- PROJECT HIGHLIGHTS (NO LINKS, just descriptions) -->
       <div class="section">
-        <div class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</div>
+        <div class="section-title"><i class="fas fa-tools"></i> Featured Projects</div>
         
         <div class="project-item">
           <div class="project-name">
-            <i class="fab fa-github"></i> <a href="#">CloudCanvas — Collaborative whiteboard</a>
+            <i class="fas fa-drafting-compass"></i> Burnside Bridge Reinforcement
           </div>
           <div class="project-tech">
-            <span class="tech-badge">React</span>
-            <span class="tech-badge">WebRTC</span>
-            <span class="tech-badge">Node.js</span>
-            <span class="tech-badge">Tailwind</span>
+            <span class="tech-badge">Structural Steel</span>
+            <span class="tech-badge">SMAW</span>
+            <span class="tech-badge">AISC Standards</span>
           </div>
-          <p style="font-size:0.85rem; margin-top:0.5rem;">Real-time collaborative drawing tool with room sharing, undo/redo, and export to PNG. Used by 2k+ designers in beta.</p>
-          <div class="project-links">
-            <a href="#"><i class="fab fa-github"></i> source code</a>
-            <a href="#"><i class="fas fa-external-link-alt"></i> live demo</a>
-          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Key welding contributor on seismic retrofit project — installed moment-resisting frames and base plates. Managed 150+ linear feet of full-penetration welds.</p>
         </div>
 
         <div class="project-item">
           <div class="project-name">
-            <i class="fab fa-github"></i> <a href="#">DevMetrics — Developer analytics dashboard</a>
+            <i class="fas fa-oil-can"></i> High-Pressure Pipeline Assembly
           </div>
           <div class="project-tech">
-            <span class="tech-badge">Next.js</span>
-            <span class="tech-badge">Chart.js</span>
-            <span class="tech-badge">Prisma</span>
-            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">GTAW (TIG)</span>
+            <span class="tech-badge">6G Position</span>
+            <span class="tech-badge">ASME IX</span>
           </div>
-          <p style="font-size:0.85rem; margin-top:0.5rem;">Open-source tool to visualize GitHub metrics, PR velocity, and team insights. 500+ stars on GitHub.</p>
-          <div class="project-links">
-            <a href="#"><i class="fab fa-github"></i> repository</a>
-            <a href="#"><i class="fas fa-chart-line"></i> preview</a>
-          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Fabricated and welded 12-inch schedule 40 pipe spools for a commercial natural gas facility. Passed radiographic and hydrostatic tests with zero defects.</p>
         </div>
 
         <div class="project-item">
           <div class="project-name">
-            <i class="fas fa-mobile-alt"></i> <a href="#">FitTrack — wellness companion</a>
+            <i class="fas fa-building"></i> Custom Architectural Staircase
           </div>
           <div class="project-tech">
-            <span class="tech-badge">React Native</span>
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">Expo</span>
+            <span class="tech-badge">MIG</span>
+            <span class="tech-badge">Stainless Steel</span>
+            <span class="tech-badge">Finishing</span>
           </div>
-          <p style="font-size:0.85rem; margin-top:0.5rem;">Cross-platform mobile app for habit tracking, workout logs, and personalized recommendations.</p>
-          <div class="project-links">
-            <a href="#"><i class="fab fa-github"></i> github</a>
-          </div>
+          <p style="font-size:0.85rem; margin-top:0.5rem;">Designed and welded a modern spiral staircase for a corporate lobby. Focused on aesthetic finish, load-bearing strength, and ADA compliance.</p>
         </div>
       </div>
 
-      <!-- EDUCATION -->
+      <!-- EDUCATION & SAFETY -->
       <div class="section">
-        <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
-        <div class="education-item">
+        <div class="section-title"><i class="fas fa-graduation-cap"></i> Education & Training</div>
+        <div class="job">
           <div class="job-header">
-            <span class="job-title">M.S. in Computer Science</span>
-            <span class="date">2017 – 2019</span>
+            <span class="job-title">Associate of Applied Science — Welding Technology</span>
+            <span class="date">2014 – 2016</span>
           </div>
-          <div class="company">Stanford University</div>
-          <div style="font-size:0.85rem; margin-top:0.3rem;">Relevant coursework: Distributed Systems, AI, Full-Stack Web Development. GPA: 3.9/4.0</div>
+          <div class="company">Portland Community College · Portland, OR</div>
+          <ul class="job-description">
+            <li>Completed advanced certification in pipe welding and metallurgy.</li>
+            <li>Recipient of AWS Student Chapter Scholarship.</li>
+          </ul>
         </div>
-        <div class="education-item">
+        <div class="job">
           <div class="job-header">
-            <span class="job-title">B.E. Software Engineering</span>
-            <span class="date">2013 – 2017</span>
+            <span class="job-title">Certified Welding Inspector (CWI) — In Progress</span>
+            <span class="date">2025</span>
           </div>
-          <div class="company">University of Washington</div>
-          <div style="font-size:0.85rem; margin-top:0.3rem;">Dean’s List, Hackathon winner 2016, Lead of Coding Club.</div>
+          <div class="company">American Welding Society</div>
+          <ul class="job-description"><li>Enhancing quality control and inspection credentials.</li></ul>
         </div>
       </div>
       <hr>
-      <div style="font-size: 0.75rem; color: #475569; text-align: center;">
-        <i class="fas fa-download"></i> Available for freelance & full-time opportunities — open to remote worldwide.
+      <div style="font-size: 0.75rem; color: #5a6f66; text-align: center;">
+        <i class="fas fa-hard-hat"></i> Available for contract & full-time industrial welding positions — 100% safety-certified & ready to travel.
       </div>
     </main>
   </div>
 </div>
-<button class="print-btn" id="printResumeBtn"><i class="fas fa-print"></i> Print / Save as PDF</button>
+<button class="print-btn" id="printResumeBtn"><i class="fas fa-print"></i> Print / PDF</button>
 <footer>
-  © 2026 Sebastian Gomez — Built as a responsive resume template for GitHub Pages. Updated March 2026.
+  <span>© 2026 Michael Torres — Professional Welder Resume | Built for GitHub Pages</span>
 </footer>
 
 <script>
-  // print functionality (Ctrl+P or button)
+  // PRINT functionality
   const printBtn = document.getElementById('printResumeBtn');
-  printBtn.addEventListener('click', () => {
-    window.print();
-  });
-
-  // optional: Add smooth hover & interactivity but everything is static & perfect for resume
-  // You can replace any placeholder links or info easily.
-  // For a fully dynamic "GitHub projects fetch" you could integrate API but this resume is content-focused.
-  // To make it truly yours, edit text/links inside the HTML.
-  
-  // small effect for profile avatar
-  const avatar = document.querySelector('.avatar-circle');
-  if(avatar) {
-    avatar.addEventListener('mouseenter', () => {
-      avatar.style.transform = 'scale(1.02)';
-      avatar.style.transition = '0.2s';
-    });
-    avatar.addEventListener('mouseleave', () => {
-      avatar.style.transform = 'scale(1)';
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
     });
   }
 
-  // Update year dynamically in footer if needed
-  const footerYear = document.querySelector('footer');
-  if(footerYear) {
-    const currentYear = new Date().getFullYear();
-    footerYear.innerHTML = `© ${currentYear} Sebastian Gomez — Built as a responsive resume template for GitHub Pages. Updated ${new Date().toLocaleDateString()}.`;
-  }
+  // For dynamic image insertion: you can replace the placeholder with your own image easily.
+  // The HTML uses an <img> with ID "userProfileImg". By default it shows a placeholder.
+  // To insert your own image: 
+  // 1) Put your image file (e.g., "my-photo.jpg") in the same folder as this HTML file.
+  // 2) Change the src attribute below (or in the HTML) to "my-photo.jpg".
+  // For convenience, we also provide a small console helper, but no forced script.
+
+  // Optional: allow user to update image via file input? not needed but for flexibility, but we just add comment.
+  console.log("Resume ready: To insert your own photo, replace the 'src' of the image with id 'userProfileImg' to your image file path.");
   
-  // Optional: fill github repos via fetch? but it's already a complete resume page.
-  // For customisation: replace name, contact, projects with your actual data.
-  console.log('Resume ready for GitHub Pages — personalize the content inside HTML to match your profile!');
+  // You can uncomment if you want to load a local image automatically:
+  // const imgElement = document.getElementById('userProfileImg');
+  // imgElement.src = "your-photo.jpg";   // change to actual filename
+
+  // The design is less bright: muted greens, slate backgrounds, soft neutrals.
+  // No external links in featured projects — all descriptive.
+  
+  // Additional safety: ensure no anchor tags inside project items
+  const allProjectItems = document.querySelectorAll('.project-item a');
+  if (allProjectItems.length === 0) {
+    // confirmed no hyperlinks inside featured projects
+  }
 </script>
 </body>
 </html>
