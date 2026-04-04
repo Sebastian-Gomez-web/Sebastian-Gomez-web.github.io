@@ -1,10 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Sebastian Gomez - Home</title>
-  </head>
-  <body>
-    <h1>No way this is my website!</h1>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Projects Hub | GitHub Portfolio</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* header section */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+    }
+
+    .avatar i {
+      font-size: 3.2rem;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #0f172a, #2563eb);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .tagline {
+      color: #334155;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* GitHub username form */
+    .user-section {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    #username {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.85rem 1.2rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 60px;
+      font-size: 1rem;
+      background: #ffffff;
+      transition: 0.2s;
+      font-family: 'Inter', monospace;
+    }
+
+    #username:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+    }
+
+    button {
+      background: #0f172a;
+      color: white;
+      border: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    button i {
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    /* status & error */
+    .status {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .error-message {
+      color: #dc2626;
+      background: #fee2e2;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+    }
+
+    .loading {
+      color: #2563eb;
+      background: #e0f2fe;
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+    }
+
+    /* stats row */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 1.5rem 0 2rem 0;
+      background: white;
+      border-radius: 2rem;
+      padding: 1rem 2rem;
+      border: 1px solid #eef2ff;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-card {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .stat-label {
+      color: #475569;
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      transition: all 0.25s ease;
+      border: 1px solid #eef2ff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border-color: #cbd5e1;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .project-title i {
+      color: #3b82f6;
+      font-size: 1.25rem;
+    }
+
+    .project-title a {
+      color: #0f172a;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project-title a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      color: #334155;
+      font-size: 0.9rem;
+      margin: 0.5rem 0 1rem 0;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: #475569;
+      margin-top: 0.75rem;
+      border-top: 1px solid #eef2ff;
+      padding-top: 0.9rem;
+    }
+
+    .lang {
+      background: #f1f5f9;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .stars, .forks {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .stars i, .forks i {
+      font-size: 0.75rem;
+    }
+
+    .updated {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: white;
+      border-radius: 2rem;
+      margin-top: 2rem;
+      color: #475569;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="avatar">
+      <i class="fab fa-github-alt"></i>
+    </div>
+    <h1>⚡ Project Showcase</h1>
+    <div class="tagline">
+      Discover and share your GitHub repositories — beautifully displayed, always up to date.
+    </div>
+  </div>
+
+  <div class="user-section">
+    <div class="input-group">
+      <label for="username"><i class="fab fa-github"></i> GitHub Username:</label>
+      <input type="text" id="username" placeholder="e.g., octocat, torvalds, your-username" value="">
+      <button id="fetchBtn"><i class="fas fa-meteor"></i> Load Projects</button>
+    </div>
+    <div id="statusMsg" class="status"></div>
+  </div>
+
+  <!-- Stats container (dynamic) -->
+  <div id="statsArea" style="min-height: 70px;"></div>
+
+  <!-- Projects grid -->
+  <div id="projectsContainer">
+    <div class="empty-state" style="background: transparent; box-shadow: none;">
+      <i class="fab fa-github" style="font-size: 3rem; color: #cbd5e1; margin-bottom: 0.5rem; display: block;"></i>
+      <p>✨ Enter a GitHub username above and click "Load Projects" to see a portfolio of repositories.<br>All public repos will be shown with stars, forks, language & last update.</p>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fas fa-code"></i> Built with GitHub API | Dynamic portfolio for GitHub Pages
+  </footer>
+</div>
+
+<script>
+  // DOM elements
+  const usernameInput = document.getElementById('username');
+  const fetchBtn = document.getElementById('fetchBtn');
+  const statusDiv = document.getElementById('statusMsg');
+  const projectsContainer = document.getElementById('projectsContainer');
+  const statsArea = document.getElementById('statsArea');
+
+  // Helper: clear status & render loading/error
+  function setStatus(message, isError = false, isLoading = false) {
+    statusDiv.innerHTML = '';
+    if (!message) return;
+    const span = document.createElement('span');
+    span.textContent = message;
+    if (isError) {
+      span.className = 'error-message';
+      span.style.display = 'inline-block';
+    } else if (isLoading) {
+      span.className = 'loading';
+      span.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ' + message;
+    } else {
+      span.style.color = '#2c7a4b';
+      span.style.background = '#e6f7ec';
+      span.style.padding = '0.5rem 1rem';
+      span.style.borderRadius = '40px';
+      span.style.display = 'inline-block';
+    }
+    statusDiv.appendChild(span);
+  }
+
+  // Format relative date: show "updated X days ago" or full date
+  function formatDate(dateString) {
+    if (!dateString) return 'unknown';
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+    if (diffDays === 0) return 'today';
+    if (diffDays === 1) return 'yesterday';
+    if (diffDays < 30) return `${diffDays} days ago`;
+    return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  // truncate description
+  function truncateDesc(desc, maxLength = 110) {
+    if (!desc) return "No description provided";
+    if (desc.length <= maxLength) return desc;
+    return desc.substring(0, maxLength).trim() + '…';
+  }
+
+  // Render stats (repo count, total stars, total forks)
+  function renderStats(repos) {
+    if (!repos || repos.length === 0) {
+      statsArea.innerHTML = '';
+      return;
+    }
+    const totalStars = repos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+    const totalForks = repos.reduce((sum, repo) => sum + (repo.forks_count || 0), 0);
+    const repoCount = repos.length;
+    
+    const statsHtml = `
+      <div class="stats-row">
+        <div class="stat-card"><span class="stat-number">${repoCount}</span> <span class="stat-label">repositories</span></div>
+        <div class="stat-card"><span class="stat-number">${totalStars}</span> <span class="stat-label"><i class="far fa-star"></i> stars</span></div>
+        <div class="stat-card"><span class="stat-number">${totalForks}</span> <span class="stat-label"><i class="fas fa-code-branch"></i> forks</span></div>
+      </div>
+    `;
+    statsArea.innerHTML = statsHtml;
+  }
+
+  // Render projects grid from fetched repos
+  function renderProjects(repos, username) {
+    if (!repos || repos.length === 0) {
+      projectsContainer.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-folder-open" style="font-size: 2.5rem; opacity: 0.6;"></i>
+          <p>😕 No public repositories found for <strong>${escapeHtml(username)}</strong>.<br>Try another username or make sure the user has public repos.</p>
+        </div>
+      `;
+      return;
+    }
+
+    // filter out forks? we keep all, but you could also keep them all, typical portfolio shows everything.
+    // sort by updated_at desc (recent first)
+    const sortedRepos = [...repos].sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    
+    let projectsHTML = `<div class="projects-grid">`;
+    for (const repo of sortedRepos) {
+      const repoName = repo.name;
+      const fullName = repo.full_name;
+      const htmlUrl = repo.html_url;
+      const description = truncateDesc(repo.description);
+      const language = repo.language || '🌐 Markup';
+      const stargazers = repo.stargazers_count || 0;
+      const forks = repo.forks_count || 0;
+      const updatedAt = repo.updated_at;
+      const updatedRelative = formatDate(updatedAt);
+      // license info - optional but nice
+      const licenseName = repo.license ? repo.license.spdx_id || repo.license.name : null;
+      
+      projectsHTML += `
+        <div class="project-card">
+          <div class="project-title">
+            <i class="fab fa-github"></i>
+            <a href="${htmlUrl}" target="_blank" rel="noopener noreferrer">${escapeHtml(repoName)}</a>
+          </div>
+          <div class="project-desc">
+            ${escapeHtml(description)}
+          </div>
+          <div class="project-meta">
+            <span class="lang"><i class="fas fa-code"></i> ${escapeHtml(language)}</span>
+            <span class="stars"><i class="far fa-star"></i> ${stargazers}</span>
+            <span class="forks"><i class="fas fa-code-branch"></i> ${forks}</span>
+            <span class="updated"><i class="far fa-calendar-alt"></i> ${updatedRelative}</span>
+            ${licenseName ? `<span class="updated"><i class="fas fa-balance-scale"></i> ${escapeHtml(licenseName)}</span>` : ''}
+          </div>
+        </div>
+      `;
+    }
+    projectsHTML += `</div>`;
+    projectsContainer.innerHTML = projectsHTML;
+  }
+
+  // simple escape to avoid XSS
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+      return c;
+    });
+  }
+
+  // fetch repositories from GitHub API (public repos, no auth needed)
+  async function fetchGithubRepos(username) {
+    // First, validate username not empty
+    const trimmedUser = username.trim();
+    if (!trimmedUser) {
+      throw new Error('Please enter a GitHub username');
+    }
+    
+    // API endpoint: get user's repos, sorted by updated, max 100 (GitHub pages free tier is fine)
+    // we will fetch up to 100 repos, that's enough for showcase, pagination could be added but not needed for most.
+    const url = `https://api.github.com/users/${encodeURIComponent(trimmedUser)}/repos?per_page=100&sort=updated&direction=desc`;
+    
+    const response = await fetch(url);
+    
+    if (response.status === 404) {
+      throw new Error(`User "${trimmedUser}" not found.`);
+    }
+    if (response.status === 403) {
+      const rateLimit = response.headers.get('X-RateLimit-Remaining');
+      if (rateLimit === '0') {
+        throw new Error('GitHub API rate limit exceeded. Please try again later or use a different network.');
+      } else {
+        throw new Error('Access forbidden or rate limited. Try again in a moment.');
+      }
+    }
+    if (!response.ok) {
+      throw new Error(`Failed to fetch (HTTP ${response.status}). Please check username or network.`);
+    }
+    
+    const repos = await response.json();
+    if (!Array.isArray(repos)) {
+      throw new Error('Unexpected response from GitHub API');
+    }
+    return repos;
+  }
+
+  // main load handler
+  async function loadProjects() {
+    const username = usernameInput.value.trim();
+    if (!username) {
+      setStatus('⚠️ Please enter a GitHub username', true);
+      // show empty state clean
+      statsArea.innerHTML = '';
+      projectsContainer.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-user-astronaut" style="font-size: 2rem;"></i>
+          <p>Enter a GitHub username to see their public projects ✨</p>
+        </div>
+      `;
+      return;
+    }
+    
+    // Reset UI, show loading
+    setStatus(`Fetching repositories for ${escapeHtml(username)} ...`, false, true);
+    projectsContainer.innerHTML = `<div style="text-align:center; padding: 3rem;"><i class="fas fa-spinner fa-pulse fa-2x" style="color:#3b82f6;"></i><p style="margin-top:1rem;">Loading projects from GitHub...</p></div>`;
+    statsArea.innerHTML = '';
+    
+    try {
+      const repos = await fetchGithubRepos(username);
+      // success
+      setStatus(`✅ Loaded ${repos.length} public repositories from ${escapeHtml(username)}`, false);
+      renderStats(repos);
+      renderProjects(repos, username);
+      
+      // Optional: store last username in localStorage for persistence? Not mandatory but nice UX
+      localStorage.setItem('gh_portfolio_last_user', username);
+    } catch (err) {
+      console.error(err);
+      setStatus(`❌ Error: ${err.message}`, true);
+      statsArea.innerHTML = '';
+      projectsContainer.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-exclamation-triangle" style="font-size: 2.5rem; color:#dc2626;"></i>
+          <p>${escapeHtml(err.message)}<br>🔍 Double-check the username or try again later.</p>
+        </div>
+      `;
+    }
+  }
+  
+  // optionally load last used username from localStorage on page load
+  function initFromStorage() {
+    const lastUser = localStorage.getItem('gh_portfolio_last_user');
+    if (lastUser) {
+      usernameInput.value = lastUser;
+      // auto fetch? Not auto to avoid unexpected api calls, but we can show hint
+      setStatus(`✨ Previous user: ${escapeHtml(lastUser)}. Click "Load Projects" to refresh.`, false);
+      // optional: we don't auto load to be gentle on API, but we could show a little helper button or just let user click.
+    } else {
+      // set a default placeholder example? Not necessary, but we can show demo
+      usernameInput.placeholder = "e.g., facebook, vuejs, yourhandle";
+    }
+  }
+
+  // Add event listeners
+  fetchBtn.addEventListener('click', loadProjects);
+  usernameInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      loadProjects();
+    }
+  });
+  
+  // initial load from storage, but do not auto call API (user action first)
+  initFromStorage();
+
+  // add small footer extra
+  console.log('✨ GitHub Pages Portfolio ready — Showcase all your projects effortlessly');
+</script>
+</body>
 </html>
