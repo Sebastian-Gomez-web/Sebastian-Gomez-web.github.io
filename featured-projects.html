@@ -2,203 +2,562 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Featured Projects | Before & After Gallery - Sebastian Gomez Welding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Projects Gallery | Before & After - Michael Torres Welding</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #eef2f0;
-      color: #1e2a3a;
+      background: #d9dfd9;
+      color: #1e2a2b;
       padding: 2rem 1rem;
     }
+
+    /* main container - less bright, muted earthy tones */
     .gallery-container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
-      background: white;
-      border-radius: 2rem;
-      padding: 2rem;
-      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+      background: #ece7df;
+      border-radius: 1.8rem;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.2);
+      border: 1px solid #cdc6b8;
     }
+
     h1 {
       font-size: 2rem;
-      color: #2c3e3f;
-      border-left: 5px solid #88b2a8;
+      color: #2c3e2f;
+      border-left: 5px solid #8faa8b;
       padding-left: 1rem;
       margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
     }
+
     .sub {
-      color: #5a6f66;
+      color: #5a6b55;
       margin-bottom: 2rem;
       margin-top: 0.25rem;
+      font-size: 0.95rem;
     }
+
     .back-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       margin-bottom: 2rem;
-      background: #2c3e3f;
-      color: white;
+      background: #4e6b5c;
+      color: #f5f0e6;
       padding: 0.5rem 1.2rem;
-      border-radius: 40px;
+      border-radius: 60px;
       text-decoration: none;
       font-size: 0.85rem;
+      font-weight: 500;
       transition: 0.2s;
+      border: none;
+      cursor: pointer;
     }
-    .back-link:hover { 
-      background: #5f7f6e; 
-      transform: translateX(-3px);
+
+    .back-link:hover {
+      background: #2c3e32;
+      transform: translateX(-4px);
     }
+
+    /* project card */
     .project-gallery {
       margin-bottom: 3rem;
-      border-bottom: 1px solid #dce5e0;
-      padding-bottom: 2rem;
+      border-bottom: 1px solid #cdc2b0;
+      padding-bottom: 2.5rem;
     }
+
+    .project-gallery:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
     .project-gallery h2 {
       font-size: 1.6rem;
-      color: #2c3e3f;
-      margin-bottom: 1rem;
+      color: #2c3e2f;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
+      font-weight: 600;
     }
-    .image-pair {
+
+    .project-gallery h2 i {
+      color: #7b9c6e;
+      font-size: 1.5rem;
+    }
+
+    /* two-column carousel layout */
+    .carousel-pair {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: space-between;
-      margin-top: 1rem;
+      gap: 2rem;
+      margin-top: 0.5rem;
     }
-    .image-card {
+
+    .carousel-box {
       flex: 1;
-      min-width: 240px;
-      background: #fafcf9;
-      border-radius: 1rem;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      min-width: 260px;
+      background: #e3ded3;
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      transition: all 0.2s;
+      border: 1px solid #cfc7b8;
     }
-    .image-card img {
+
+    .carousel-label {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: #3f5543;
+      background: #d6cebc;
+      display: inline-block;
+      width: 100%;
+      padding: 0.3rem 0;
+      border-radius: 60px;
+    }
+
+    /* carousel container */
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: #cbc2ae;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-track-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0.8rem;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0.5rem;
+    }
+
+    .carousel-slide img {
       width: 100%;
       height: auto;
-      border-radius: 1rem;
-      border: 1px solid #cbdcd3;
-      background: #eef3f0;
-      object-fit: cover;
       max-height: 280px;
+      object-fit: cover;
+      border-radius: 0.8rem;
+      border: 2px solid #b8ac92;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: #cfc7b5;
     }
-    .image-card p {
+
+    .image-caption {
       margin-top: 0.5rem;
-      font-weight: 600;
-      color: #2c3e3f;
+      font-size: 0.7rem;
+      color: #4e5e49;
+      text-align: center;
     }
-    .caption {
+
+    /* navigation buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(44, 62, 47, 0.7);
+      color: #f0eadc;
+      border: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: 0.2s;
+      z-index: 10;
+      backdrop-filter: blur(2px);
+    }
+
+    .carousel-btn:hover {
+      background: #2c3e32;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .btn-left {
+      left: 8px;
+    }
+
+    .btn-right {
+      right: 8px;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #b0a68b;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .dot.active {
+      background-color: #4e6b5c;
+      width: 20px;
+      border-radius: 6px;
+    }
+
+    /* empty placeholder style */
+    .placeholder-note {
+      text-align: center;
+      padding: 2rem;
+      color: #7e705a;
       font-size: 0.8rem;
-      color: #6f8f88;
+      background: #d9d0bf;
+      border-radius: 1rem;
     }
-    @media (max-width: 700px) {
-      .image-pair { flex-direction: column; }
-      .gallery-container { padding: 1rem; }
+
+    @media (max-width: 780px) {
+      .carousel-pair {
+        flex-direction: column;
+      }
+      .gallery-container {
+        padding: 1.2rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
+
 <div class="gallery-container">
-  <!-- FIXED: Back button now correctly detects the referring page or defaults to index.html -->
   <a href="#" id="backButton" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
-  <h1>📐 Featured Projects Gallery</h1>
-  <div class="sub">Before & after — precision welding and fabrication transformations</div>
+  <h1>🏗️ Featured Projects Gallery</h1>
+  <div class="sub">Before & after — precision welding and fabrication transformations (click arrows to see multiple angles)</div>
 
-  <!-- Project 1: Burnside Bridge -->
-  <div class="project-gallery">
+  <!-- ========== PROJECT 1: Burnside Bridge ========== -->
+  <div class="project-gallery" id="project-bridge">
     <h2><i class="fas fa-drafting-compass"></i> Burnside Bridge Reinforcement</h2>
-    <div class="image-pair">
-      <div class="image-card">
-        <img src="https://placehold.co/600x400/e2e8e0/2c3e3f?text=Before:+Aging+Steel+Structure" alt="Before bridge reinforcement">
-        <p>⬅️ BEFORE: Corroded & under-supported joints</p>
-        <div class="caption">Original structural weak points</div>
+    <div class="carousel-pair">
+      <!-- BEFORE carousel -->
+      <div class="carousel-box">
+        <div class="carousel-label"><i class="fas fa-history"></i> BEFORE</div>
+        <div class="carousel" id="carousel-bridge-before">
+          <button class="carousel-btn btn-left" data-carousel="bridge-before">‹</button>
+          <div class="carousel-track-container">
+            <div class="carousel-track" id="track-bridge-before">
+              <!-- slides will be injected dynamically -->
+            </div>
+          </div>
+          <button class="carousel-btn btn-right" data-carousel="bridge-before">›</button>
+        </div>
+        <div class="carousel-dots" id="dots-bridge-before"></div>
       </div>
-      <div class="image-card">
-        <img src="https://placehold.co/600x400/88b2a8/ffffff?text=After:+Full+Seismic+Retrofit" alt="After welding reinforcement">
-        <p>➡️ AFTER: New moment frames & full-penetration welds</p>
-        <div class="caption">Reinforced with AWS D1.1 standards</div>
+      <!-- AFTER carousel -->
+      <div class="carousel-box">
+        <div class="carousel-label"><i class="fas fa-check-circle"></i> AFTER</div>
+        <div class="carousel" id="carousel-bridge-after">
+          <button class="carousel-btn btn-left" data-carousel="bridge-after">‹</button>
+          <div class="carousel-track-container">
+            <div class="carousel-track" id="track-bridge-after"></div>
+          </div>
+          <button class="carousel-btn btn-right" data-carousel="bridge-after">›</button>
+        </div>
+        <div class="carousel-dots" id="dots-bridge-after"></div>
       </div>
     </div>
-    <p style="margin-top: 0.8rem; font-size:0.85rem;"><i class="fas fa-weld"></i> Scope: 150+ ft of continuous welds, load testing passed 120%.</p>
   </div>
 
-  <!-- Project 2: Pipeline Assembly -->
-  <div class="project-gallery">
+  <!-- ========== PROJECT 2: Pipeline Assembly ========== -->
+  <div class="project-gallery" id="project-pipeline">
     <h2><i class="fas fa-oil-can"></i> High-Pressure Pipeline Assembly</h2>
-    <div class="image-pair">
-      <div class="image-card">
-        <img src="https://placehold.co/600x400/d9cfc0/4a3b2c?text=Before:+Raw+Pipe+Sections" alt="Raw pipe before welding">
-        <p>⬅️ BEFORE: Unfinished bevels & fit-up</p>
+    <div class="carousel-pair">
+      <div class="carousel-box">
+        <div class="carousel-label"><i class="fas fa-history"></i> BEFORE</div>
+        <div class="carousel" id="carousel-pipe-before">
+          <button class="carousel-btn btn-left" data-carousel="pipe-before">‹</button>
+          <div class="carousel-track-container"><div class="carousel-track" id="track-pipe-before"></div></div>
+          <button class="carousel-btn btn-right" data-carousel="pipe-before">›</button>
+        </div>
+        <div class="carousel-dots" id="dots-pipe-before"></div>
       </div>
-      <div class="image-card">
-        <img src="https://placehold.co/600x400/6e9f8e/ffffff?text=After:+TIG+Welded+Joint" alt="After flawless pipe weld">
-        <p>➡️ AFTER: 6G GTAW root & hot pass, X-ray clear</p>
+      <div class="carousel-box">
+        <div class="carousel-label"><i class="fas fa-check-circle"></i> AFTER</div>
+        <div class="carousel" id="carousel-pipe-after">
+          <button class="carousel-btn btn-left" data-carousel="pipe-after">‹</button>
+          <div class="carousel-track-container"><div class="carousel-track" id="track-pipe-after"></div></div>
+          <button class="carousel-btn btn-right" data-carousel="pipe-after">›</button>
+        </div>
+        <div class="carousel-dots" id="dots-pipe-after"></div>
       </div>
     </div>
   </div>
 
-  <!-- Project 3: Custom Staircase -->
-  <div class="project-gallery">
+  <!-- ========== PROJECT 3: Custom Staircase ========== -->
+  <div class="project-gallery" id="project-stairs">
     <h2><i class="fas fa-building"></i> Custom Architectural Staircase</h2>
-    <div class="image-pair">
-      <div class="image-card">
-        <img src="https://placehold.co/600x400/b0aa9a/3a3a3a?text=Before:+Raw+Steel+Framework" alt="Raw steel frame">
-        <p>⬅️ BEFORE: Raw steel & temporary supports</p>
+    <div class="carousel-pair">
+      <div class="carousel-box">
+        <div class="carousel-label"><i class="fas fa-history"></i> BEFORE</div>
+        <div class="carousel" id="carousel-stairs-before">
+          <button class="carousel-btn btn-left" data-carousel="stairs-before">‹</button>
+          <div class="carousel-track-container"><div class="carousel-track" id="track-stairs-before"></div></div>
+          <button class="carousel-btn btn-right" data-carousel="stairs-before">›</button>
+        </div>
+        <div class="carousel-dots" id="dots-stairs-before"></div>
       </div>
-      <div class="image-card">
-        <img src="https://placehold.co/600x400/bfd9ce/2c3e3f?text=After:+Polished+Stainless+Staircase" alt="Finished staircase">
-        <p>➡️ AFTER: Polished stainless & handrail finish</p>
+      <div class="carousel-box">
+        <div class="carousel-label"><i class="fas fa-check-circle"></i> AFTER</div>
+        <div class="carousel" id="carousel-stairs-after">
+          <button class="carousel-btn btn-left" data-carousel="stairs-after">‹</button>
+          <div class="carousel-track-container"><div class="carousel-track" id="track-stairs-after"></div></div>
+          <button class="carousel-btn btn-right" data-carousel="stairs-after">›</button>
+        </div>
+        <div class="carousel-dots" id="dots-stairs-after"></div>
       </div>
     </div>
-    <p style="margin-top:0.6rem; font-size:0.85rem;">⭐ 2024 Commercial Design Award — flawless weld finish & load rating.</p>
   </div>
 
-  <div style="margin-top: 2rem; text-align: center; font-size:0.8rem;">
-    <i class="fas fa-hard-hat"></i> Every project meets or exceeds AWS/ASME standards. Contact for more details.
+  <div style="margin-top: 2rem; text-align: center; font-size:0.75rem; color: #6f6a58;">
+    <i class="fas fa-images"></i> Click arrows to browse multiple images | Add your own photos below
   </div>
 </div>
 
 <script>
-  // FIX: Smart back button that works regardless of what the main resume file is named
-  const backBtn = document.getElementById('backButton');
+  // ---------- IMAGE DATA (EASY TO EDIT: add your own image URLs here) ----------
+  // For each project and each state (before/after), you can add multiple image URLs.
+  // Replace the placeholder URLs with your actual images. You can add as many as you like.
   
-  backBtn.addEventListener('click', function(e) {
-    e.preventDefault();
+  const imageData = {
+    bridge: {
+      before: [
+        "https://placehold.co/800x500/cfcbbd/4a5b44?text=Bridge+Before+1:+Cracked+supports",
+        "https://placehold.co/800x500/c9c2b0/3a4a34?text=Bridge+Before+2:+Corroded+joints",
+        "https://placehold.co/800x500/d6cfbd/4a5b44?text=Bridge+Before+3:+Wide+angle+structure"
+      ],
+      after: [
+        "https://placehold.co/800x500/a6bb9b/2c3e2f?text=Bridge+After+1:+New+steel+frame",
+        "https://placehold.co/800x500/bacfae/2c3e2f?text=Bridge+After+2:+Welded+connections",
+        "https://placehold.co/800x500/8faa83/2c3e2f?text=Bridge+After+3:+Completed+retrofit"
+      ]
+    },
+    pipeline: {
+      before: [
+        "https://placehold.co/800x500/c6b894/4a3e2c?text=Pipeline+Before+1:+Raw+pipe+ends",
+        "https://placehold.co/800x500/d4c6a8/4a3e2c?text=Pipeline+Before+2:+Unfinished+bevel"
+      ],
+      after: [
+        "https://placehold.co/800x500/90aa80/2c3e2f?text=Pipeline+After+1:+TIG+root+pass",
+        "https://placehold.co/800x500/a7bc97/2c3e2f?text=Pipeline+After+2:+X-ray+clear+joint",
+        "https://placehold.co/800x500/7f9a70/2c3e2f?text=Pipeline+After+3:+Final+pressure+test"
+      ]
+    },
+    stairs: {
+      before: [
+        "https://placehold.co/800x500/d1c2ab/5e5140?text=Stairs+Before+1:+Raw+steel+frame",
+        "https://placehold.co/800x500/bfb094/5e5140?text=Stairs+Before+2:+Temporary+supports"
+      ],
+      after: [
+        "https://placehold.co/800x500/afca9c/2c3e2f?text=Stairs+After+1:+Polished+stringers",
+        "https://placehold.co/800x500/c4ddb2/2c3e2f?text=Stairs+After+2:+Finished+handrail",
+        "https://placehold.co/800x500/95b583/2c3e2f?text=Stairs+After+3:+Complete+staircase"
+      ]
+    }
+  };
+
+  // ----- Helper: Initialize a carousel -----
+  function initCarousel(trackId, dotsId, imagesArray, carouselContainerId) {
+    const track = document.getElementById(trackId);
+    const dotsContainer = document.getElementById(dotsId);
+    if (!track) return;
     
-    // Try to find the most likely resume page
-    // Option 1: Check if there's a referrer from the resume page
-    if (document.referrer && document.referrer.length > 0) {
-      // If we came from a page that contains 'resume' or 'index', go back
+    // clear previous
+    track.innerHTML = '';
+    if (dotsContainer) dotsContainer.innerHTML = '';
+    if (!imagesArray.length) {
+      // placeholder if no images
+      const emptySlide = document.createElement('div');
+      emptySlide.className = 'carousel-slide';
+      emptySlide.innerHTML = `<div class="placeholder-note"><i class="fas fa-image"></i> No images added.<br>Replace placeholder URLs in script.</div>`;
+      track.appendChild(emptySlide);
+      if (dotsContainer) dotsContainer.style.display = 'none';
+      return;
+    }
+    
+    let currentIndex = 0;
+    const slides = [];
+    
+    // create slides
+    imagesArray.forEach((imgUrl, idx) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      const img = document.createElement('img');
+      img.src = imgUrl;
+      img.alt = `Project image ${idx+1}`;
+      img.style.cursor = 'pointer';
+      // optional: click to open full size (lightbox could be added)
+      const caption = document.createElement('div');
+      caption.className = 'image-caption';
+      caption.textContent = `Image ${idx+1} of ${imagesArray.length}`;
+      slide.appendChild(img);
+      slide.appendChild(caption);
+      track.appendChild(slide);
+      slides.push(slide);
+    });
+    
+    // update track width & position
+    const slideWidth = 100; // percent
+    track.style.transform = `translateX(0%)`;
+    
+    function updateDots() {
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        if (i === currentIndex) dot.classList.add('active');
+        else dot.classList.remove('active');
+      });
+    }
+    
+    function goToSlide(index) {
+      if (!slides.length) return;
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      currentIndex = index;
+      const offset = - (currentIndex * 100);
+      track.style.transform = `translateX(${offset}%)`;
+      updateDots();
+    }
+    
+    function nextSlide() {
+      if (currentIndex + 1 < slides.length) goToSlide(currentIndex + 1);
+      else goToSlide(0);
+    }
+    
+    function prevSlide() {
+      if (currentIndex - 1 >= 0) goToSlide(currentIndex - 1);
+      else goToSlide(slides.length - 1);
+    }
+    
+    // create dots
+    if (dotsContainer && slides.length > 1) {
+      dotsContainer.style.display = 'flex';
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === currentIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    } else if (dotsContainer) {
+      dotsContainer.style.display = 'none';
+    }
+    
+    // attach button events
+    const containerDiv = document.getElementById(carouselContainerId);
+    if (containerDiv) {
+      const leftBtn = containerDiv.querySelector('.btn-left');
+      const rightBtn = containerDiv.querySelector('.btn-right');
+      if (leftBtn) {
+        const newLeft = leftBtn.cloneNode(true);
+        leftBtn.parentNode.replaceChild(newLeft, leftBtn);
+        newLeft.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+      }
+      if (rightBtn) {
+        const newRight = rightBtn.cloneNode(true);
+        rightBtn.parentNode.replaceChild(newRight, rightBtn);
+        newRight.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+      }
+    }
+    
+    // initial position
+    goToSlide(0);
+  }
+  
+  // Load all carousels with data
+  function loadAllCarousels() {
+    // Bridge
+    initCarousel('track-bridge-before', 'dots-bridge-before', imageData.bridge.before, 'carousel-bridge-before');
+    initCarousel('track-bridge-after', 'dots-bridge-after', imageData.bridge.after, 'carousel-bridge-after');
+    // Pipeline
+    initCarousel('track-pipe-before', 'dots-pipe-before', imageData.pipeline.before, 'carousel-pipe-before');
+    initCarousel('track-pipe-after', 'dots-pipe-after', imageData.pipeline.after, 'carousel-pipe-after');
+    // Stairs
+    initCarousel('track-stairs-before', 'dots-stairs-before', imageData.stairs.before, 'carousel-stairs-before');
+    initCarousel('track-stairs-after', 'dots-stairs-after', imageData.stairs.after, 'carousel-stairs-after');
+  }
+  
+  loadAllCarousels();
+  
+  // ----- Back to Resume button: smarter navigation -----
+  const backBtn = document.getElementById('backButton');
+  backBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (document.referrer && document.referrer.includes(window.location.hostname)) {
       window.history.back();
     } else {
-      // Option 2: Try common filenames in order of priority
-      const possiblePaths = ['index.html', 'resume.html', 'index.htm', ''];
-      
-      let found = false;
-      for (let path of possiblePaths) {
-        const testUrl = path === '' ? window.location.pathname.split('/').slice(0, -1).join('/') + '/' : path;
-        // Simple fetch to check if file exists (optional, but we'll just try navigation)
-        // Instead, we'll just navigate to index.html as default (most common for GitHub Pages)
-        if (path === 'index.html' || path === '') {
-          window.location.href = 'index.html';
-          found = true;
-          break;
-        }
-      }
-      
-      if (!found) {
-        window.location.href = 'index.html';
-      }
+      window.location.href = 'index.html';
     }
   });
   
-  // Optional: Also allow manual override - if the user wants to go to index.html directly
-  console.log("Gallery ready — Back button will return to resume (index.html or previous page)");
+  // ========== INSTRUCTIONS FOR INSERTING YOUR OWN IMAGES ==========
+  // Look for the "imageData" object above. Replace the placeholder URLs with your actual image paths.
+  // You can add more images by pushing new URLs into the arrays (before or after).
+  // Example: 
+  //   before: ["my-photo1.jpg", "my-photo2.jpg", "my-photo3.jpg"],
+  //   after: ["after1.jpg", "after2.jpg"]
+  //
+  // To add a completely new project, duplicate a project block in HTML and add corresponding entry in imageData.
+  // All images will appear with left/right arrows and dot navigation.
+  console.log("Gallery ready — replace placeholder image URLs in 'imageData' object with your own before/after photos.");
 </script>
+
+<!-- MANUAL EDITING GUIDE (embedded) -->
+<!-- 
+  🔧 HOW TO ADD YOUR OWN IMAGES (multiple per box):
+  1. Find the "imageData" object inside the <script> tag.
+  2. For each project (bridge, pipeline, stairs) you'll see "before" and "after" arrays.
+  3. Replace the placeholder URLs (https://placehold.co/...) with your actual image file paths.
+     Example: "before": ["photos/bridge-before1.jpg", "photos/bridge-before2.jpg", "photos/bridge-before3.jpg"],
+  4. You can add as many images as you want to each array.
+  5. The arrows will appear automatically. Each box supports unlimited images.
+  
+  🖼️ To use local images: place your .jpg/.png files in the same folder as this HTML file,
+     then use just the filename (e.g., "my-weld-before.jpg").
+  
+  🎨 Color scheme: muted earth tones, low brightness, professional for construction portfolio.
+-->
 </body>
 </html>
